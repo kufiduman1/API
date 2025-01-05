@@ -1,1 +1,15 @@
-curl -s https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe -o "%temp%\python-3.12.8.exe" && "%temp%\python-3.12.8.exe" /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
+@echo off
+:indir
+%SystemRoot%\System32\cmd.exe /c curl -s https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe -o "%temp%\python-3.12.8.exe"
+if not exist "%temp%\python-3.12.8.exe" (
+    echo Indirme basarisiz. Tekrar deneniyor...
+    timeout /t 5 >nul
+    goto indir
+)
+"%temp%\python-3.12.8.exe" /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
+if %ERRORLEVEL% neq 0 (
+    echo Kurulum basarisiz oldu. Tekrar deneniyor...
+    timeout /t 5 >nul
+    goto indir
+)
+echo Python basariyla kuruldu!
