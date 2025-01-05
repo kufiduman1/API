@@ -9,9 +9,18 @@ if not exist python-installer.exe (
     goto indir
 )
 
-python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
+echo Kurulum başlatılıyor...
+python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1 InstallLocation="C:\Python\Python312"
 
-python --version
-pip --version
+echo Kurulum tamamlandı. Python yüklendi mi kontrol ediliyor...
+timeout /t 3 >nul
 
+python --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Python kurulumu başarısız oldu. Tekrar deneniyor...
+    timeout /t 5 >nul
+    goto indir
+)
+
+echo Python başarıyla kuruldu!
 pause
