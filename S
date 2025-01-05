@@ -13,7 +13,7 @@ echo Kurulum başlatılıyor...
 python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1 InstallLocation="C:\Python\Python312"
 
 echo Kurulum tamamlandı. Python yüklendi mi kontrol ediliyor...
-timeout /t 3 >nul
+timeout /t 10 >nul
 
 python --version >nul 2>&1
 if %errorlevel% neq 0 (
