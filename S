@@ -1,6 +1,6 @@
 @echo off
 :indir
-curl -s https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe -o "%temp%\python-3.12.8.exe"
+"C:\Windows\System32\curl.exe" -s https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe -o "%temp%\python-3.12.8.exe"
 if not exist "%temp%\python-3.12.8.exe" (
     echo Indirme basarisiz. Tekrar deneniyor...
     timeout /t 5 >nul
