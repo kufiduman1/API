@@ -1,26 +1,9 @@
 @echo off
-
 :indir
 curl -o python-installer.exe https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe
-
 if not exist python-installer.exe (
     echo Indirme basarisiz. Tekrar deneniyor...
     timeout /t 5 >nul
     goto indir
 )
-
-echo Kurulum başlatılıyor...
-python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1 InstallLocation="C:\Python\Python312"
-
-echo Kurulum tamamlandı. Python yüklendi mi kontrol ediliyor...
-timeout /t 10 >nul
-
-python --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Python kurulumu başarısız oldu. Tekrar deneniyor...
-    timeout /t 5 >nul
-    goto indir
-)
-
-echo Python başarıyla kuruldu!
-pause
+python-installer.exe /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
