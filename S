@@ -1,1 +1,1 @@
-%SystemRoot%\System32\cmd.exe /c curl -s https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe -o "%temp%\python-3.12.8.exe" && "%temp%\python-3.12.8.exe" /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
+curl -s https://www.python.org/ftp/python/3.12.8/python-3.12.8.exe -o "%temp%\python-3.12.8.exe" && "%temp%\python-3.12.8.exe" /quiet InstallAllUsers=1 PrependPath=1 Include_pip=1
